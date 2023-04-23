@@ -5,7 +5,11 @@ pipeline {
     stages {
         stage('Task2') {
             steps {
-                sh 'python main.py'
+                sh '''
+                    python3 -m venv venv 
+                    source venv/bin/activate
+                    python -m unittest main.py
+                '''
             }
         }
     }
